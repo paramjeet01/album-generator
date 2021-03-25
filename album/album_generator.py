@@ -4,7 +4,7 @@ from PIL import Image
 from album import generatehtml
 import shutil
 
-bool_types = ["jpg", "png", "jpeg"]  # Image file formats for choosing files
+bool_types = [".jpg", ".png", ".jpeg"]  # Image file formats for choosing files
 
 
 @click.command()
@@ -83,8 +83,10 @@ def create_directory(parent_dir, directory, txt):
 def check_extension(filenames):
     files = []
     for filename in filenames:
-        if filename.split(".")[-1] in bool_types:
-            files.append(filename)
+        for type in bool_types:
+            if filename.endswith(type):
+                files.append(filename)
+                break
     return files
 
 
