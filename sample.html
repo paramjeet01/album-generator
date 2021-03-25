@@ -5,6 +5,17 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <style>
 .mySlides {display:none;}
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
 </style>
 <body>
 
@@ -12,9 +23,14 @@
 
 <div class="w3-content w3-display-container">
    {% for image_path in image_paths %}
-  <a href={{image_path}} target="_blank">
-        <img class="mySlides" src={{image_path}} style="width:100%">
-    </a>
+    <div class="w3-display-container mySlides">
+        <a href={{image_path}} target="_blank">
+            <img src={{image_path}} style="width:100%" alt={{file_names[loop.index-1]}}>
+            <div class="w3-display-bottomleft w3-large w3-container w3-padding-16 w3-black">
+                {{file_names[loop.index-1]}}
+            </div>
+        </a>
+    </div>
   {% endfor %}
   <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
   <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>

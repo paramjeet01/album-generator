@@ -10,7 +10,7 @@ def create_html(root, files):
     file_paths = path_generator(root, files)
     jinja2_template_string = open("sample.html", 'r', encoding="utf8").read()  # Reads the sample html file
     template = Template(jinja2_template_string)
-    html_template_string = template.render(image_paths=file_paths[0], thumbnail_paths=file_paths[1])  # Renders a new html code using " JINJA "
+    html_template_string = template.render(image_paths=file_paths[0], thumbnail_paths=file_paths[1], file_names=files)  # Renders a new html code using " JINJA "
     htmlfilepath = os.path.join(root, "Mygallery.html")
     htmlfile = open(htmlfilepath, 'w', encoding="utf8")
     htmlfile.write(html_template_string)  # New HTML file is created
