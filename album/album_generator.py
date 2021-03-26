@@ -21,7 +21,7 @@ def main(filepath):
         shutil.rmtree(path)
         create_directory(filepath, new_directory, "Updated")
         thumbnail_generator(image_files, filepath, new_directory)
-    generatehtml.create_html(filepath, image_files)  # Creates new html file
+    generatehtml.create_html(filepath, image_files, "index.html", "index.html") # Creates new html file
 
 
 """
